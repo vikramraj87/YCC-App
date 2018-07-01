@@ -9,28 +9,23 @@
 /* Begin PBXBuildFile section */
 		0993535D5D973AA513B57608 /* Pods_YCC_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AFC569026C79D5FBC957E /* Pods_YCC_App.framework */; };
 		8157A7AC516BC04F059B8FA0 /* Pods_YCC_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61626B3399ACD5D1FBCE0C36 /* Pods_YCC_AppTests.framework */; };
+		AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D820E947A4000206E3 /* RegexValidator.swift */; };
+		AC20D5DD20E947A5000206E3 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D920E947A4000206E3 /* NameValidator.swift */; };
+		AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5DA20E947A5000206E3 /* Validator.swift */; };
+		AC20D5DF20E947A5000206E3 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5DB20E947A5000206E3 /* ValidationResult.swift */; };
+		AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5E020E947B5000206E3 /* FailedValidationReason.swift */; };
+		AC20D5E420E947D4000206E3 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5E320E947D4000206E3 /* Dealer.swift */; };
+		AC20D5E820E947F6000206E3 /* CopyImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5E620E947F6000206E3 /* CopyImageOperation.swift */; };
+		AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5E720E947F6000206E3 /* SelectFolderOperation.swift */; };
+		AC20D5EE20E94821000206E3 /* SceneIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */; };
+		AC20D5EF20E94821000206E3 /* ImportJewelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */; };
+		AC20D5F020E94821000206E3 /* CreateDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */; };
 		AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B161320E9403000AD5E15 /* AppDelegate.swift */; };
 		AC6B161620E9403000AD5E15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B161520E9403000AD5E15 /* ViewController.swift */; };
 		AC6B161820E9403100AD5E15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6B161720E9403100AD5E15 /* Assets.xcassets */; };
 		AC6B161B20E9403100AD5E15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6B161920E9403100AD5E15 /* Main.storyboard */; };
 		AC6B162720E9403100AD5E15 /* YCC_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B162620E9403100AD5E15 /* YCC_AppTests.swift */; };
-		AC6B163D20E941B900AD5E15 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B163C20E941B900AD5E15 /* Dealer.swift */; };
-		AC6B164120E941E300AD5E15 /* CopyImageOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B163F20E941E300AD5E15 /* CopyImageOperation.swift */; };
-		AC6B164220E941E300AD5E15 /* SelectFolderOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164020E941E300AD5E15 /* SelectFolderOperation.swift */; };
-		AC6B164A20E941F000AD5E15 /* FailedValidationReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164520E941F000AD5E15 /* FailedValidationReason.swift */; };
-		AC6B164B20E941F000AD5E15 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164620E941F000AD5E15 /* NameValidator.swift */; };
-		AC6B164C20E941F000AD5E15 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164720E941F000AD5E15 /* RegexValidator.swift */; };
-		AC6B164D20E941F000AD5E15 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164820E941F000AD5E15 /* ValidationResult.swift */; };
-		AC6B164E20E941F000AD5E15 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164920E941F000AD5E15 /* Validator.swift */; };
-		AC6B165320E941F700AD5E15 /* CreateDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B165020E941F600AD5E15 /* CreateDealerViewController.swift */; };
-		AC6B165420E941F700AD5E15 /* ImportJewelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B165120E941F600AD5E15 /* ImportJewelsViewController.swift */; };
-		AC6B165520E941F700AD5E15 /* SceneIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B165220E941F600AD5E15 /* SceneIdentifiers.swift */; };
 		AC6B165B20E9437600AD5E15 /* NameValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B165A20E9437600AD5E15 /* NameValidatorTests.swift */; };
-		AC6B165C20E9438E00AD5E15 /* FailedValidationReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164520E941F000AD5E15 /* FailedValidationReason.swift */; };
-		AC6B165D20E9438E00AD5E15 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164620E941F000AD5E15 /* NameValidator.swift */; };
-		AC6B165E20E9438E00AD5E15 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164720E941F000AD5E15 /* RegexValidator.swift */; };
-		AC6B165F20E9438E00AD5E15 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164820E941F000AD5E15 /* ValidationResult.swift */; };
-		AC6B166020E9438E00AD5E15 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B164920E941F000AD5E15 /* Validator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +44,17 @@
 		61626B3399ACD5D1FBCE0C36 /* Pods_YCC_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YCC_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D83EC3CF8477741C0DC4B90 /* Pods-YCC AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YCC AppTests/Pods-YCC AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7115AEE84514BB7AA206C51 /* Pods-YCC App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.release.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.release.xcconfig"; sourceTree = "<group>"; };
+		AC20D5D820E947A4000206E3 /* RegexValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
+		AC20D5D920E947A4000206E3 /* NameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
+		AC20D5DA20E947A5000206E3 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
+		AC20D5DB20E947A5000206E3 /* ValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
+		AC20D5E020E947B5000206E3 /* FailedValidationReason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedValidationReason.swift; sourceTree = "<group>"; };
+		AC20D5E320E947D4000206E3 /* Dealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		AC20D5E620E947F6000206E3 /* CopyImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyImageOperation.swift; sourceTree = "<group>"; };
+		AC20D5E720E947F6000206E3 /* SelectFolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFolderOperation.swift; sourceTree = "<group>"; };
+		AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneIdentifiers.swift; sourceTree = "<group>"; };
+		AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportJewelsViewController.swift; sourceTree = "<group>"; };
+		AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDealerViewController.swift; sourceTree = "<group>"; };
 		AC6B161020E9403000AD5E15 /* YCC App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YCC App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6B161320E9403000AD5E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6B161520E9403000AD5E15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,17 +65,6 @@
 		AC6B162220E9403100AD5E15 /* YCC AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "YCC AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6B162620E9403100AD5E15 /* YCC_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCC_AppTests.swift; sourceTree = "<group>"; };
 		AC6B162820E9403100AD5E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AC6B163C20E941B900AD5E15 /* Dealer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
-		AC6B163F20E941E300AD5E15 /* CopyImageOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyImageOperation.swift; sourceTree = "<group>"; };
-		AC6B164020E941E300AD5E15 /* SelectFolderOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectFolderOperation.swift; sourceTree = "<group>"; };
-		AC6B164520E941F000AD5E15 /* FailedValidationReason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FailedValidationReason.swift; sourceTree = "<group>"; };
-		AC6B164620E941F000AD5E15 /* NameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
-		AC6B164720E941F000AD5E15 /* RegexValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
-		AC6B164820E941F000AD5E15 /* ValidationResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValidationResult.swift; sourceTree = "<group>"; };
-		AC6B164920E941F000AD5E15 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
-		AC6B165020E941F600AD5E15 /* CreateDealerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDealerViewController.swift; sourceTree = "<group>"; };
-		AC6B165120E941F600AD5E15 /* ImportJewelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportJewelsViewController.swift; sourceTree = "<group>"; };
-		AC6B165220E941F600AD5E15 /* SceneIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneIdentifiers.swift; sourceTree = "<group>"; };
 		AC6B165A20E9437600AD5E15 /* NameValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameValidatorTests.swift; sourceTree = "<group>"; };
 		C82F01D9290011DD939C51D4 /* Pods-YCC App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +100,45 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AC20D5D720E9478E000206E3 /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				AC20D5D920E947A4000206E3 /* NameValidator.swift */,
+				AC20D5D820E947A4000206E3 /* RegexValidator.swift */,
+				AC20D5DB20E947A5000206E3 /* ValidationResult.swift */,
+				AC20D5DA20E947A5000206E3 /* Validator.swift */,
+				AC20D5E020E947B5000206E3 /* FailedValidationReason.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		AC20D5E220E947C2000206E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC20D5E320E947D4000206E3 /* Dealer.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC20D5E520E947E2000206E3 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				AC20D5E620E947F6000206E3 /* CopyImageOperation.swift */,
+				AC20D5E720E947F6000206E3 /* SelectFolderOperation.swift */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		AC20D5EA20E94813000206E3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */,
+				AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */,
+				AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		AC6B160720E9403000AD5E15 = {
 			isa = PBXGroup;
 			children = (
@@ -128,12 +162,10 @@
 		AC6B161220E9403000AD5E15 /* YCC App */ = {
 			isa = PBXGroup;
 			children = (
-				AC6B163B20E941B900AD5E15 /* Models */,
-				AC6B163E20E941E300AD5E15 /* Operations */,
-				AC6B164320E941EA00AD5E15 /* RealmObjects */,
-				AC6B164420E941F000AD5E15 /* Validators */,
-				AC6B164F20E941F600AD5E15 /* ViewControllers */,
-				AC6B165620E941FC00AD5E15 /* Views */,
+				AC20D5EA20E94813000206E3 /* ViewControllers */,
+				AC20D5E520E947E2000206E3 /* Operations */,
+				AC20D5E220E947C2000206E3 /* Models */,
+				AC20D5D720E9478E000206E3 /* Validators */,
 				AC6B161320E9403000AD5E15 /* AppDelegate.swift */,
 				AC6B161520E9403000AD5E15 /* ViewController.swift */,
 				AC6B161720E9403100AD5E15 /* Assets.xcassets */,
@@ -152,65 +184,6 @@
 				AC6B162820E9403100AD5E15 /* Info.plist */,
 			);
 			path = "YCC AppTests";
-			sourceTree = "<group>";
-		};
-		AC6B163B20E941B900AD5E15 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				AC6B163C20E941B900AD5E15 /* Dealer.swift */,
-			);
-			name = Models;
-			path = "../../YCC App 3/YCC App 3/Models";
-			sourceTree = "<group>";
-		};
-		AC6B163E20E941E300AD5E15 /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				AC6B163F20E941E300AD5E15 /* CopyImageOperation.swift */,
-				AC6B164020E941E300AD5E15 /* SelectFolderOperation.swift */,
-			);
-			name = Operations;
-			path = "../../YCC App 3/YCC App 3/Operations";
-			sourceTree = "<group>";
-		};
-		AC6B164320E941EA00AD5E15 /* RealmObjects */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = RealmObjects;
-			path = "../../YCC App 3/YCC App 3/RealmObjects";
-			sourceTree = "<group>";
-		};
-		AC6B164420E941F000AD5E15 /* Validators */ = {
-			isa = PBXGroup;
-			children = (
-				AC6B164520E941F000AD5E15 /* FailedValidationReason.swift */,
-				AC6B164620E941F000AD5E15 /* NameValidator.swift */,
-				AC6B164720E941F000AD5E15 /* RegexValidator.swift */,
-				AC6B164820E941F000AD5E15 /* ValidationResult.swift */,
-				AC6B164920E941F000AD5E15 /* Validator.swift */,
-			);
-			name = Validators;
-			path = "../../YCC App 3/YCC App 3/Validators";
-			sourceTree = "<group>";
-		};
-		AC6B164F20E941F600AD5E15 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				AC6B165020E941F600AD5E15 /* CreateDealerViewController.swift */,
-				AC6B165120E941F600AD5E15 /* ImportJewelsViewController.swift */,
-				AC6B165220E941F600AD5E15 /* SceneIdentifiers.swift */,
-			);
-			name = ViewControllers;
-			path = "../../YCC App 3/YCC App 3/ViewControllers";
-			sourceTree = "<group>";
-		};
-		AC6B165620E941FC00AD5E15 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			path = "../../YCC App 3/YCC App 3/Views";
 			sourceTree = "<group>";
 		};
 		AC6B165920E9437600AD5E15 /* Validator Tests */ = {
@@ -392,19 +365,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC6B164C20E941F000AD5E15 /* RegexValidator.swift in Sources */,
-				AC6B164220E941E300AD5E15 /* SelectFolderOperation.swift in Sources */,
-				AC6B165320E941F700AD5E15 /* CreateDealerViewController.swift in Sources */,
-				AC6B165520E941F700AD5E15 /* SceneIdentifiers.swift in Sources */,
-				AC6B164E20E941F000AD5E15 /* Validator.swift in Sources */,
-				AC6B164D20E941F000AD5E15 /* ValidationResult.swift in Sources */,
+				AC20D5E420E947D4000206E3 /* Dealer.swift in Sources */,
+				AC20D5DD20E947A5000206E3 /* NameValidator.swift in Sources */,
+				AC20D5F020E94821000206E3 /* CreateDealerViewController.swift in Sources */,
+				AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */,
+				AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */,
+				AC20D5E820E947F6000206E3 /* CopyImageOperation.swift in Sources */,
+				AC20D5EE20E94821000206E3 /* SceneIdentifiers.swift in Sources */,
+				AC20D5EF20E94821000206E3 /* ImportJewelsViewController.swift in Sources */,
 				AC6B161620E9403000AD5E15 /* ViewController.swift in Sources */,
-				AC6B165420E941F700AD5E15 /* ImportJewelsViewController.swift in Sources */,
-				AC6B164B20E941F000AD5E15 /* NameValidator.swift in Sources */,
 				AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */,
-				AC6B164120E941E300AD5E15 /* CopyImageOperation.swift in Sources */,
-				AC6B163D20E941B900AD5E15 /* Dealer.swift in Sources */,
-				AC6B164A20E941F000AD5E15 /* FailedValidationReason.swift in Sources */,
+				AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */,
+				AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */,
+				AC20D5DF20E947A5000206E3 /* ValidationResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,12 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC6B162720E9403100AD5E15 /* YCC_AppTests.swift in Sources */,
-				AC6B165E20E9438E00AD5E15 /* RegexValidator.swift in Sources */,
-				AC6B165D20E9438E00AD5E15 /* NameValidator.swift in Sources */,
 				AC6B165B20E9437600AD5E15 /* NameValidatorTests.swift in Sources */,
-				AC6B166020E9438E00AD5E15 /* Validator.swift in Sources */,
-				AC6B165C20E9438E00AD5E15 /* FailedValidationReason.swift in Sources */,
-				AC6B165F20E9438E00AD5E15 /* ValidationResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
