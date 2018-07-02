@@ -20,6 +20,21 @@
 		AC20D5EE20E94821000206E3 /* SceneIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */; };
 		AC20D5EF20E94821000206E3 /* ImportJewelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */; };
 		AC20D5F020E94821000206E3 /* CreateDealerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */; };
+		AC20D5F120E94A24000206E3 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D920E947A4000206E3 /* NameValidator.swift */; };
+		AC20D5F220E94A24000206E3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D820E947A4000206E3 /* RegexValidator.swift */; };
+		AC20D5F320E94A24000206E3 /* ValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5DB20E947A5000206E3 /* ValidationResult.swift */; };
+		AC20D5F420E94A24000206E3 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5DA20E947A5000206E3 /* Validator.swift */; };
+		AC20D5F520E94A24000206E3 /* FailedValidationReason.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5E020E947B5000206E3 /* FailedValidationReason.swift */; };
+		AC216F6120EA86E500BB19DF /* LengthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6020EA86E500BB19DF /* LengthValidator.swift */; };
+		AC216F6220EA86E500BB19DF /* LengthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6020EA86E500BB19DF /* LengthValidator.swift */; };
+		AC216F6420EA878E00BB19DF /* LengthValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6320EA878E00BB19DF /* LengthValidatorTests.swift */; };
+		AC216F6620EA8B2400BB19DF /* DecimalValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6520EA8B2400BB19DF /* DecimalValidator.swift */; };
+		AC216F6720EA8B2400BB19DF /* DecimalValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6520EA8B2400BB19DF /* DecimalValidator.swift */; };
+		AC216F6920EA8BF800BB19DF /* NumberValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6820EA8BF800BB19DF /* NumberValidatorTests.swift */; };
+		AC216F6B20EA8D5F00BB19DF /* ValidatorChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6A20EA8D5F00BB19DF /* ValidatorChain.swift */; };
+		AC216F6C20EA8D5F00BB19DF /* ValidatorChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6A20EA8D5F00BB19DF /* ValidatorChain.swift */; };
+		AC216F6E20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6D20EA8F8D00BB19DF /* IntegerValidator.swift */; };
+		AC216F6F20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC216F6D20EA8F8D00BB19DF /* IntegerValidator.swift */; };
 		AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B161320E9403000AD5E15 /* AppDelegate.swift */; };
 		AC6B161620E9403000AD5E15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B161520E9403000AD5E15 /* ViewController.swift */; };
 		AC6B161820E9403100AD5E15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC6B161720E9403100AD5E15 /* Assets.xcassets */; };
@@ -55,6 +70,12 @@
 		AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneIdentifiers.swift; sourceTree = "<group>"; };
 		AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportJewelsViewController.swift; sourceTree = "<group>"; };
 		AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateDealerViewController.swift; sourceTree = "<group>"; };
+		AC216F6020EA86E500BB19DF /* LengthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthValidator.swift; sourceTree = "<group>"; };
+		AC216F6320EA878E00BB19DF /* LengthValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LengthValidatorTests.swift; sourceTree = "<group>"; };
+		AC216F6520EA8B2400BB19DF /* DecimalValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalValidator.swift; sourceTree = "<group>"; };
+		AC216F6820EA8BF800BB19DF /* NumberValidatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberValidatorTests.swift; sourceTree = "<group>"; };
+		AC216F6A20EA8D5F00BB19DF /* ValidatorChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatorChain.swift; sourceTree = "<group>"; };
+		AC216F6D20EA8F8D00BB19DF /* IntegerValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerValidator.swift; sourceTree = "<group>"; };
 		AC6B161020E9403000AD5E15 /* YCC App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YCC App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC6B161320E9403000AD5E15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC6B161520E9403000AD5E15 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +129,10 @@
 				AC20D5DB20E947A5000206E3 /* ValidationResult.swift */,
 				AC20D5DA20E947A5000206E3 /* Validator.swift */,
 				AC20D5E020E947B5000206E3 /* FailedValidationReason.swift */,
+				AC216F6020EA86E500BB19DF /* LengthValidator.swift */,
+				AC216F6520EA8B2400BB19DF /* DecimalValidator.swift */,
+				AC216F6A20EA8D5F00BB19DF /* ValidatorChain.swift */,
+				AC216F6D20EA8F8D00BB19DF /* IntegerValidator.swift */,
 			);
 			path = Validators;
 			sourceTree = "<group>";
@@ -190,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				AC6B165A20E9437600AD5E15 /* NameValidatorTests.swift */,
+				AC216F6320EA878E00BB19DF /* LengthValidatorTests.swift */,
+				AC216F6820EA8BF800BB19DF /* NumberValidatorTests.swift */,
 			);
 			path = "Validator Tests";
 			sourceTree = "<group>";
@@ -367,13 +394,17 @@
 			files = (
 				AC20D5E420E947D4000206E3 /* Dealer.swift in Sources */,
 				AC20D5DD20E947A5000206E3 /* NameValidator.swift in Sources */,
+				AC216F6120EA86E500BB19DF /* LengthValidator.swift in Sources */,
 				AC20D5F020E94821000206E3 /* CreateDealerViewController.swift in Sources */,
 				AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */,
 				AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */,
 				AC20D5E820E947F6000206E3 /* CopyImageOperation.swift in Sources */,
 				AC20D5EE20E94821000206E3 /* SceneIdentifiers.swift in Sources */,
+				AC216F6B20EA8D5F00BB19DF /* ValidatorChain.swift in Sources */,
 				AC20D5EF20E94821000206E3 /* ImportJewelsViewController.swift in Sources */,
 				AC6B161620E9403000AD5E15 /* ViewController.swift in Sources */,
+				AC216F6620EA8B2400BB19DF /* DecimalValidator.swift in Sources */,
+				AC216F6E20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */,
 				AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */,
 				AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */,
 				AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */,
@@ -385,7 +416,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC216F6220EA86E500BB19DF /* LengthValidator.swift in Sources */,
+				AC20D5F220E94A24000206E3 /* RegexValidator.swift in Sources */,
+				AC20D5F120E94A24000206E3 /* NameValidator.swift in Sources */,
 				AC6B162720E9403100AD5E15 /* YCC_AppTests.swift in Sources */,
+				AC20D5F320E94A24000206E3 /* ValidationResult.swift in Sources */,
+				AC216F6F20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */,
+				AC216F6720EA8B2400BB19DF /* DecimalValidator.swift in Sources */,
+				AC216F6920EA8BF800BB19DF /* NumberValidatorTests.swift in Sources */,
+				AC20D5F420E94A24000206E3 /* Validator.swift in Sources */,
+				AC216F6C20EA8D5F00BB19DF /* ValidatorChain.swift in Sources */,
+				AC216F6420EA878E00BB19DF /* LengthValidatorTests.swift in Sources */,
+				AC20D5F520E94A24000206E3 /* FailedValidationReason.swift in Sources */,
 				AC6B165B20E9437600AD5E15 /* NameValidatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
