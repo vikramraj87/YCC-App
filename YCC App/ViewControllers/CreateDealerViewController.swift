@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class CreateDealerViewController: NSViewController {
     enum FormField {
@@ -50,6 +51,37 @@ class CreateDealerViewController: NSViewController {
     
     @IBAction func saveDealer(_ sender: NSButton) {
         guard validate() else { return }
+        
+        let dealer = RODealer()
+        dealer.name = nameTextField.stringValue
+        dealer.mobileNumber = mobileNumberTextField.stringValue
+        
+        if !usualShippingTextField.stringValue.isEmpty {
+            dealer.usualShippingCost = usualShippingTextField.floatValue
+        }
+        
+        if !multiplicationFactorTextField.stringValue.isEmpty {
+            dealer.codeMultiplicationFactor = multiplicationFactorTextField.floatValue
+        }
+        
+        guard let realm = try? Realm() else {
+            print("Not able to obtain Realm instance")
+            return
+        }
+        
+        guard !isDuplicate(dealer: dealer, realm: realm) else { return }
+        
+        do {
+            try realm.write {
+                realm.add(dealer)
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        
+        dismiss(self)
     }
     
     private func validate() -> Bool {
@@ -77,6 +109,32 @@ class CreateDealerViewController: NSViewController {
         }
         
         return isValid
+    }
+    
+    private func isDuplicate(dealer: RODealer, realm: Realm) -> Bool {
+        let namePredicate = NSPredicate(format: "name ==[c] %@", dealer.name)
+        var duplicate = realm.objects(RODealer.self).filter(namePredicate)
+        
+        if duplicate.count > 0 {
+            displayValidationMessage("Name already exists", for: .name)
+            return true
+        }
+        
+        let mobileNumberPredicate = NSPredicate(format: "mobileNumber ==[c] %@", dealer.mobileNumber)
+        duplicate = realm.objects(RODealer.self).filter(mobileNumberPredicate)
+        
+        if duplicate.count > 0 {
+            displayValidationMessage("Mobile number exists", for: .mobileNumber)
+            return true
+        }
+        
+        return false
+    }
+    
+    private func displayValidationMessage(_ message: String, for field: FormField) {
+        guard let validationLabel = validationLabel(for: field) else { return }
+        validationLabel.stringValue = message
+        validationLabel.isHidden = false
     }
     
     private func displayFailedValidationReason(_ reason: FailedValidationReason, for field: FormField) {

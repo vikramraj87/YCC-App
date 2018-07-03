@@ -12,7 +12,8 @@ import RealmSwift
 protocol Dealer {
     var id: String { get set }
     var name: String { get set }
-    
+    var usualShippingCost: Float { get }
+    var codeMultiplicationFactor: Float { get }
     
 }
 
@@ -26,6 +27,9 @@ protocol Jewel {
 class RODealer: Object, Dealer {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var name = ""
+    @objc dynamic var mobileNumber = ""
+    @objc dynamic var usualShippingCost: Float = 0.0
+    @objc dynamic var codeMultiplicationFactor: Float = 1.0
     @objc dynamic var createdOn = Date()
     
     let jewelObjects = List<ROJewel>()
@@ -42,6 +46,7 @@ class RODealer: Object, Dealer {
 class ROJewel: Object, Jewel {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var addedOn = Date()
+    @objc dynamic var dealerPrice: Float = 0.0
     
     let dealers = LinkingObjects(fromType: RODealer.self, property: "jewelObjects")
     
