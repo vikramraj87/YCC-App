@@ -42,6 +42,9 @@
 		AC6B161B20E9403100AD5E15 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC6B161920E9403100AD5E15 /* Main.storyboard */; };
 		AC6B162720E9403100AD5E15 /* YCC_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B162620E9403100AD5E15 /* YCC_AppTests.swift */; };
 		AC6B165B20E9437600AD5E15 /* NameValidatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6B165A20E9437600AD5E15 /* NameValidatorTests.swift */; };
+		AC752B2420EE697C001ED601 /* String+highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2320EE697C001ED601 /* String+highlight.swift */; };
+		AC752B2620EE69EA001ED601 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2520EE69EA001ED601 /* AsyncOperation.swift */; };
+		AC752B2820EE6A46001ED601 /* SelectDealerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		AC6B162620E9403100AD5E15 /* YCC_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YCC_AppTests.swift; sourceTree = "<group>"; };
 		AC6B162820E9403100AD5E15 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC6B165A20E9437600AD5E15 /* NameValidatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameValidatorTests.swift; sourceTree = "<group>"; };
+		AC752B2320EE697C001ED601 /* String+highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+highlight.swift"; sourceTree = "<group>"; };
+		AC752B2520EE69EA001ED601 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDealerOperation.swift; sourceTree = "<group>"; };
 		C82F01D9290011DD939C51D4 /* Pods-YCC App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +158,8 @@
 			children = (
 				AC20D5E620E947F6000206E3 /* CopyImageOperation.swift */,
 				AC20D5E720E947F6000206E3 /* SelectFolderOperation.swift */,
+				AC752B2520EE69EA001ED601 /* AsyncOperation.swift */,
+				AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 		AC6B161220E9403000AD5E15 /* YCC App */ = {
 			isa = PBXGroup;
 			children = (
+				AC752B2220EE6964001ED601 /* Extensions */,
 				ACFFB6A420EB039E0022F780 /* Services */,
 				AC20D5EA20E94813000206E3 /* ViewControllers */,
 				AC20D5E520E947E2000206E3 /* Operations */,
@@ -223,6 +232,14 @@
 				AC216F6820EA8BF800BB19DF /* NumberValidatorTests.swift */,
 			);
 			path = "Validator Tests";
+			sourceTree = "<group>";
+		};
+		AC752B2220EE6964001ED601 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AC752B2320EE697C001ED601 /* String+highlight.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ACFFB6A420EB039E0022F780 /* Services */ = {
@@ -418,8 +435,11 @@
 				AC216F6620EA8B2400BB19DF /* DecimalValidator.swift in Sources */,
 				AC216F6E20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */,
 				AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */,
+				AC752B2420EE697C001ED601 /* String+highlight.swift in Sources */,
 				AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */,
 				AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */,
+				AC752B2620EE69EA001ED601 /* AsyncOperation.swift in Sources */,
+				AC752B2820EE6A46001ED601 /* SelectDealerOperation.swift in Sources */,
 				AC20D5DF20E947A5000206E3 /* ValidationResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

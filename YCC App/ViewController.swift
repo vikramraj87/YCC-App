@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class ViewController: NSViewController {
 
@@ -20,23 +21,46 @@ class ViewController: NSViewController {
         }
     }
     
+    
+    
     @IBAction func importJewels(_ sender: Any) {
-        let selectFolderOp = SelectFolderOperation()
-        
-        let showProgressOp = BlockOperation {
-            guard let folder = selectFolderOp.selectedFolder else { return }
-            guard let files = selectFolderOp.selectedFiles else { return }
+        let selectDealerOp = SelectDealerOperation(presentingViewController: self)
+        selectDealerOp.completionBlock = {
+            guard let dealerRef = selectDealerOp.selectedDealerRef else {
+                print("No dealer selected")
+                return
+            }
+            guard let realm = try? Realm() else {
+                print("Cannot get Realm Reference")
+                return
+            }
+            guard let dealer = realm.resolve(dealerRef) else {
+                print("Cannot resolve ref")
+                return
+            }
             
-            let vc = NSStoryboard.main!.instantiateController(withIdentifier: .importJewels) as! ImportJewelsViewController
-            vc.selectedFolder = folder
-            vc.selectedFiles = files
-            self.presentViewControllerAsModalWindow(vc)
+            print("Selected dealer is \(dealer.name)")
         }
         
-        showProgressOp.addDependency(selectFolderOp)
+        OperationQueue.main.addOperation(selectDealerOp)
         
-        OperationQueue.main.addOperation(showProgressOp)
-        OperationQueue.main.addOperation(selectFolderOp)
+        
+//        let selectFolderOp = SelectFolderOperation()
+//
+//        let showProgressOp = BlockOperation {
+//            guard let folder = selectFolderOp.selectedFolder else { return }
+//            guard let files = selectFolderOp.selectedFiles else { return }
+//
+//            let vc = NSStoryboard.main!.instantiateController(withIdentifier: .importJewels) as! ImportJewelsViewController
+//            vc.selectedFolder = folder
+//            vc.selectedFiles = files
+//            self.presentViewControllerAsModalWindow(vc)
+//        }
+//
+//        showProgressOp.addDependency(selectFolderOp)
+//
+//        OperationQueue.main.addOperation(showProgressOp)
+//        OperationQueue.main.addOperation(selectFolderOp)
     }
     
     @IBAction func createDealer(_ sender: Any) {

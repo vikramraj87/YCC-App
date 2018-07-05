@@ -11,4 +11,5 @@ import Cocoa
 extension NSStoryboard.SceneIdentifier {
     static let importJewels = NSStoryboard.SceneIdentifier(rawValue: "importJewels")
     static let createDealer = NSStoryboard.SceneIdentifier(rawValue: "createDealer")
+    static let selectItem = NSStoryboard.SceneIdentifier(rawValue: "selectItem")
 }
