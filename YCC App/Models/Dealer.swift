@@ -43,6 +43,19 @@ class RODealer: Object, Dealer {
     }
 }
 
+extension RODealer: FilterableItem {
+    var summary: String {
+        return "\(name) (\(mobileNumber))"
+    }
+    
+    func shouldSelect(for query: String) -> Bool {
+        let q = query.uppercased()
+        if name.uppercased().contains(q) { return true }
+        if mobileNumber.uppercased().contains(q) { return true }
+        return false
+    }
+}
+
 class ROJewel: Object, Jewel {
     @objc dynamic var id = UUID().uuidString
     @objc dynamic var addedOn = Date()

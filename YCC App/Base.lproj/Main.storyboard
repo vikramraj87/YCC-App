@@ -107,7 +107,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="LxU-FC-YJI" kind="relationship" relationship="window.shadowedContentViewController" id="Lpf-eB-4Vn"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -186,30 +186,33 @@ Gw
         <!--Selection View Controller-->
         <scene sceneID="Z0b-52-L0e">
             <objects>
-                <viewController title="Selection View Controller" id="LxU-FC-YJI" customClass="SelectionViewController" customModule="YCC_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Selection View Controller" id="LxU-FC-YJI" customClass="FilterableTableViewController" customModule="YCC_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="bw3-k4-1kK">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="323"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cT6-Oc-mWG">
-                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="323"/>
                                 <subviews>
                                     <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xN7-rn-b1G">
-                                        <rect key="frame" x="0.0" y="278" width="450" height="22"/>
+                                        <rect key="frame" x="0.0" y="301" width="450" height="22"/>
                                         <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="B1U-Rv-uGJ">
-                                            <font key="font" metaFont="system"/>
+                                            <font key="font" metaFont="system" size="14"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </searchFieldCell>
+                                        <connections>
+                                            <outlet property="delegate" destination="LxU-FC-YJI" id="Dlw-LS-S2U"/>
+                                        </connections>
                                     </searchField>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="efJ-A7-sfc">
-                                        <rect key="frame" x="0.0" y="0.0" width="450" height="278"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="301"/>
                                         <clipView key="contentView" id="dIx-Fr-csJ">
-                                            <rect key="frame" x="1" y="1" width="448" height="276"/>
+                                            <rect key="frame" x="1" y="1" width="448" height="299"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="rmI-r8-uwY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="448" height="276"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="448" height="299"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
