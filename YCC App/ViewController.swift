@@ -15,52 +15,31 @@ class ViewController: NSViewController {
         super.viewDidLoad()
     }
     
-    override var representedObject: Any? {
-        didSet {
-            // Update the view, if already loaded.
-        }
-    }
-    
-    
-    
     @IBAction func importJewels(_ sender: Any) {
-        let selectDealerOp = SelectDealerOperation(presentingViewController: self)
-        selectDealerOp.completionBlock = {
-            guard let dealerRef = selectDealerOp.selectedDealerRef else {
-                print("No dealer selected")
-                return
-            }
-            guard let realm = try? Realm() else {
-                print("Cannot get Realm Reference")
-                return
-            }
-            guard let dealer = realm.resolve(dealerRef) else {
-                print("Cannot resolve ref")
-                return
-            }
-            
-            print("Selected dealer is \(dealer.name)")
+        let selectFolderOp = SelectFolderOperation()
+        let selectDealerOp = SelectDealerOperation(presentingViewController: self,
+                                                   selectFolderOperation: selectFolderOp)
+        
+        
+        let showProgressOp = BlockOperation {
+            guard let folder = selectFolderOp.selectedFolder else { return }
+            guard let files = selectFolderOp.selectedFiles else { return }
+            guard let dealerRef = selectDealerOp.selectedDealerRef else { return }
+
+            let vc = NSStoryboard.main!.instantiateController(withIdentifier: .importJewels) as! ImportJewelsViewController
+            vc.selectedFolder = folder
+            vc.selectedFiles = files
+            vc.selectedDealerRef = dealerRef
+            self.presentViewControllerAsModalWindow(vc)
         }
         
-        OperationQueue.main.addOperation(selectDealerOp)
+        selectDealerOp.addDependency(selectFolderOp)
+        showProgressOp.addDependency(selectDealerOp)
         
-        
-//        let selectFolderOp = SelectFolderOperation()
-//
-//        let showProgressOp = BlockOperation {
-//            guard let folder = selectFolderOp.selectedFolder else { return }
-//            guard let files = selectFolderOp.selectedFiles else { return }
-//
-//            let vc = NSStoryboard.main!.instantiateController(withIdentifier: .importJewels) as! ImportJewelsViewController
-//            vc.selectedFolder = folder
-//            vc.selectedFiles = files
-//            self.presentViewControllerAsModalWindow(vc)
-//        }
-//
-//        showProgressOp.addDependency(selectFolderOp)
-//
-//        OperationQueue.main.addOperation(showProgressOp)
-//        OperationQueue.main.addOperation(selectFolderOp)
+        OperationQueue.main.addOperations([showProgressOp,
+                                           selectFolderOp,
+                                           selectDealerOp],
+                                          waitUntilFinished: false)
     }
     
     @IBAction func createDealer(_ sender: Any) {

@@ -7,10 +7,12 @@
 //
 
 import Cocoa
+import RealmSwift
 
 class ImportJewelsViewController: NSViewController {
     var selectedFolder: URL?
     var selectedFiles: [URL]?
+    var selectedDealerRef: ThreadSafeReference<RODealer>?
     
     @IBOutlet var progressBar: NSProgressIndicator!
     @IBOutlet var fromLabel: NSTextField!
@@ -38,24 +40,24 @@ class ImportJewelsViewController: NSViewController {
     }
     
     private func startCopyOperations(withSelectedFiles files: [URL]) {
-        let copyOperations: [CopyImageOperation] = files.map {
-            let op = CopyImageOperation(source: $0, fileName: $0.lastPathComponent)
-            op.completionBlock = {
-                // Update the view in main queue
-                DispatchQueue.main.async { [unowned self] in
-                    self.filesRemaining -= 1
-                    self.progressBar.doubleValue += 1.0
-                    if self.filesRemaining == 0 {
-                        self.dismiss(self)
-                    }
-                }
-            }
-            return op
-        }
-        
-        let opQueue = OperationQueue()
-        opQueue.qualityOfService = .userInitiated
-        opQueue.addOperations(copyOperations, waitUntilFinished: false)
+//        let copyOperations: [CopyImageOperation] = files.map {
+//            let op = CopyImageOperation(source: $0, fileName: $0.lastPathComponent)
+//            op.completionBlock = {
+//                // Update the view in main queue
+//                DispatchQueue.main.async { [unowned self] in
+//                    self.filesRemaining -= 1
+//                    self.progressBar.doubleValue += 1.0
+//                    if self.filesRemaining == 0 {
+//                        self.dismiss(self)
+//                    }
+//                }
+//            }
+//            return op
+//        }
+//        
+//        let opQueue = OperationQueue()
+//        opQueue.qualityOfService = .userInitiated
+//        opQueue.addOperations(copyOperations, waitUntilFinished: false)
     }
     
     private func resetUI(withSelectedFolder folder: URL, andFiles files: [URL]) {

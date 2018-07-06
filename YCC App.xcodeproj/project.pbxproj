@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0993535D5D973AA513B57608 /* Pods_YCC_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 586AFC569026C79D5FBC957E /* Pods_YCC_App.framework */; };
 		8157A7AC516BC04F059B8FA0 /* Pods_YCC_AppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61626B3399ACD5D1FBCE0C36 /* Pods_YCC_AppTests.framework */; };
-		AC1C1B5020EDA80900CF8B83 /* FilterableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C1B4F20EDA80900CF8B83 /* FilterableTableViewController.swift */; };
+		AC1C1B5020EDA80900CF8B83 /* ROSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC1C1B4F20EDA80900CF8B83 /* ROSelectionViewController.swift */; };
 		AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D820E947A4000206E3 /* RegexValidator.swift */; };
 		AC20D5DD20E947A5000206E3 /* NameValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5D920E947A4000206E3 /* NameValidator.swift */; };
 		AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC20D5DA20E947A5000206E3 /* Validator.swift */; };
@@ -63,7 +63,7 @@
 		61626B3399ACD5D1FBCE0C36 /* Pods_YCC_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YCC_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D83EC3CF8477741C0DC4B90 /* Pods-YCC AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC AppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YCC AppTests/Pods-YCC AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A7115AEE84514BB7AA206C51 /* Pods-YCC App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.release.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.release.xcconfig"; sourceTree = "<group>"; };
-		AC1C1B4F20EDA80900CF8B83 /* FilterableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterableTableViewController.swift; sourceTree = "<group>"; };
+		AC1C1B4F20EDA80900CF8B83 /* ROSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ROSelectionViewController.swift; sourceTree = "<group>"; };
 		AC20D5D820E947A4000206E3 /* RegexValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexValidator.swift; sourceTree = "<group>"; };
 		AC20D5D920E947A4000206E3 /* NameValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameValidator.swift; sourceTree = "<group>"; };
 		AC20D5DA20E947A5000206E3 /* Validator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				AC20D5ED20E94821000206E3 /* CreateDealerViewController.swift */,
 				AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */,
 				AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */,
-				AC1C1B4F20EDA80900CF8B83 /* FilterableTableViewController.swift */,
+				AC1C1B4F20EDA80900CF8B83 /* ROSelectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 				AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */,
 				AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */,
 				AC20D5E820E947F6000206E3 /* CopyImageOperation.swift in Sources */,
-				AC1C1B5020EDA80900CF8B83 /* FilterableTableViewController.swift in Sources */,
+				AC1C1B5020EDA80900CF8B83 /* ROSelectionViewController.swift in Sources */,
 				AC20D5EE20E94821000206E3 /* SceneIdentifiers.swift in Sources */,
 				AC216F6B20EA8D5F00BB19DF /* ValidatorChain.swift in Sources */,
 				AC20D5EF20E94821000206E3 /* ImportJewelsViewController.swift in Sources */,

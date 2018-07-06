@@ -9,24 +9,23 @@
 import Cocoa
 import RealmSwift
 
-protocol ROSelectionViewControllerDelegate: class {
-    associatedtype T: Object
-    func modalWindowClosed()
-    func selectionMade(_ item: ThreadSafeReference<T>)
-}
-
 protocol FilterableItem {
     var summary: String { get }
-    
     func shouldSelect(for query: String) -> Bool
 }
 
-class ROSelectionViewController<T: FilterableItem,
-                                D: ROSelectionViewControllerDelegate>:
-                                NSViewController, NSTableViewDataSource,
-                                NSTableViewDelegate, NSWindowDelegate,
-                                NSSearchFieldDelegate
-                                where D.T == T {
+protocol ROSelectionViewControllerDelegate: class {
+    associatedtype T: Object
+    func modalWindowClosed()
+    func selectionMade(_ itemRef: ThreadSafeReference<T>)
+}
+
+class ROSelectionViewController
+    <T: FilterableItem, D: ROSelectionViewControllerDelegate>:
+        NSViewController, NSTableViewDataSource,
+        NSTableViewDelegate, NSWindowDelegate,
+        NSSearchFieldDelegate
+            where D.T == T {
     
     var items: [T] = []
     private var filtered: [T] = []
@@ -35,17 +34,7 @@ class ROSelectionViewController<T: FilterableItem,
     weak var delegate: D?
     
     let scrollView = NSScrollView()
-    var tableView: NSTableView = {
-        let table = NSTableView(frame: .zero)
-        table.rowSizeStyle = .large
-        table.usesAlternatingRowBackgroundColors = true
-        
-        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "item"))
-        table.headerView = nil
-        column.width = 1.0
-        table.addTableColumn(column)
-        return table
-    }()
+    var tableView: NSTableView = NSTableView(frame: .zero)
     let searchField = NSSearchField(frame: .zero)
     
     override func viewDidLoad() {
@@ -56,6 +45,7 @@ class ROSelectionViewController<T: FilterableItem,
         tableView.reloadData()
     }
     
+    // Create and layout views
     override func loadView() {
         let rect = NSRect(x: 0, y: 0, width: 400, height: 300)
         view = NSView(frame: rect)
@@ -87,6 +77,14 @@ class ROSelectionViewController<T: FilterableItem,
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        tableView.rowSizeStyle = .large
+        tableView.usesAlternatingRowBackgroundColors = true
+        
+        let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "item"))
+        tableView.headerView = nil
+        column.width = 1.0
+        tableView.addTableColumn(column)
+        
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -97,8 +95,16 @@ class ROSelectionViewController<T: FilterableItem,
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let highlighted = filtered[row].summary.highlight(queryString)
-        let view = NSTextField(labelWithAttributedString: highlighted)
-        return view
+        let bgView = NSView(frame: .zero)
+        let lbl = NSTextField(labelWithAttributedString: highlighted)
+        bgView.addSubview(lbl)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            lbl.leadingAnchor.constraint(equalTo: bgView.leadingAnchor, constant: 8.0),
+            lbl.centerYAnchor.constraint(equalTo: bgView.centerYAnchor)
+        ])
+        
+        return bgView
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {

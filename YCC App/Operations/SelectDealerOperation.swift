@@ -12,13 +12,23 @@ import RealmSwift
 class SelectDealerOperation: AsyncOperation {
     var selectedDealerRef: ThreadSafeReference<RODealer>?
     let presentingViewController: NSViewController
+    weak var selectFolderOp: SelectFolderOperation?
     
-    init(presentingViewController: NSViewController) {
+    init(presentingViewController: NSViewController,
+         selectFolderOperation: SelectFolderOperation) {
         self.presentingViewController = presentingViewController
+        self.selectFolderOp = selectFolderOperation
     }
     
     override func main() {
         guard !isCancelled else {
+            setFinished(true)
+            return
+        }
+        
+        guard let files = selectFolderOp?.selectedFiles,
+            files.count > 0
+        else {
             setFinished(true)
             return
         }
@@ -38,8 +48,8 @@ class SelectDealerOperation: AsyncOperation {
 }
 
 extension SelectDealerOperation: ROSelectionViewControllerDelegate {
-    func selectionMade(_ item: ThreadSafeReference<RODealer>) {
-        selectedDealerRef = item
+    func selectionMade(_ itemRef: ThreadSafeReference<RODealer>) {
+        selectedDealerRef = itemRef
         self.setExecuting(false)
         self.setFinished(true)
     }

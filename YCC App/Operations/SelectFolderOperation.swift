@@ -8,6 +8,17 @@
 
 import Cocoa
 
+extension NSOpenPanel {
+    var selectedFolder: URL? {
+        title = "Select folder to Import"
+        allowsMultipleSelection = false
+        canChooseFiles = false
+        canChooseDirectories = true
+        
+        return runModal() == .OK ? urls.first : nil
+    }
+}
+
 class SelectFolderOperation: Operation {
     var selectedFolder: URL?
     var selectedFiles: [URL]?
@@ -16,7 +27,7 @@ class SelectFolderOperation: Operation {
     
     override func main() {
         guard !self.isCancelled else { return }
-        guard let url = getURL() else { return }
+        guard let url = NSOpenPanel().selectedFolder else { return }
         
         selectedFolder = url
         
@@ -31,16 +42,5 @@ class SelectFolderOperation: Operation {
         }.filter { (file: URL) -> Bool in
             return SelectFolderOperation.fileTypes.contains(file.pathExtension.uppercased())
         }
-    }
-    
-    private func getURL() -> URL? {
-        let panel = NSOpenPanel()
-        panel.title = "Select Folder to Import Jewels"
-        panel.allowsMultipleSelection = false
-        panel.canChooseFiles = false
-        panel.canChooseDirectories = true
-        
-        let response = panel.runModal()
-        return response == .OK ? panel.urls.first : nil
     }
 }
