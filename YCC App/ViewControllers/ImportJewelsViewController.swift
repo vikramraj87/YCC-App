@@ -25,13 +25,15 @@ class ImportJewelsViewController: NSViewController {
     
     override func viewDidAppear() {
         guard let folder = selectedFolder,
-            let files = selectedFiles else {
+            let files = selectedFiles,
+            let dealerRef = selectedDealerRef
+        else {
                 print("No folder selected or no files in the folder")
                 return
         }
         
         resetUI(withSelectedFolder: folder, andFiles: files)
-        startCopyOperations(withSelectedFiles: files)
+        startCopyOperations(withSelectedFiles: files, under: dealerRef)
     }
     
     @IBAction func cancelClicked(_ sender: NSButton) {
@@ -39,7 +41,34 @@ class ImportJewelsViewController: NSViewController {
         dismiss(self)
     }
     
-    private func startCopyOperations(withSelectedFiles files: [URL]) {
+    private func startCopyOperations(withSelectedFiles files: [URL],
+                                     under dealerRef: ThreadSafeReference<RODealer>) {
+        var createOperations: [CreateJewelOperation] = []
+        var copyOperations: [CopyImageOperation] = []
+        
+        guard let realm = try? Realm(),
+            let dealer = realm.resolve(dealerRef) else {
+                return
+        }
+        
+        for file in files {
+            let createOperation = CreateJewelOperation(dealerRef: ThreadSafeReference(to: dealer), imageURL: file)
+            let copyOperation = CopyImageOperation(createJewelOp: createOperation)
+            copyOperation.addDependency(createOperation)
+            
+            createOperations.append(createOperation)
+            copyOperations.append(copyOperation)
+            
+            copyOperation.completionBlock = {
+                DispatchQueue.main.async { [unowned self] in
+                    self.filesRemaining -= 1
+                    self.progressBar.doubleValue += 1.0
+                    if self.filesRemaining == 0 {
+                        self.dismiss(self)
+                    }
+                }
+            }
+        }
 //        let copyOperations: [CopyImageOperation] = files.map {
 //            let op = CopyImageOperation(source: $0, fileName: $0.lastPathComponent)
 //            op.completionBlock = {
@@ -55,9 +84,11 @@ class ImportJewelsViewController: NSViewController {
 //            return op
 //        }
 //        
-//        let opQueue = OperationQueue()
-//        opQueue.qualityOfService = .userInitiated
-//        opQueue.addOperations(copyOperations, waitUntilFinished: false)
+        let opQueue = OperationQueue()
+        opQueue.qualityOfService = .userInitiated
+        var ops: [Operation] = copyOperations
+        ops.append(contentsOf: createOperations)
+        opQueue.addOperations(ops, waitUntilFinished: false)
     }
     
     private func resetUI(withSelectedFolder folder: URL, andFiles files: [URL]) {

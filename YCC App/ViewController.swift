@@ -17,8 +17,14 @@ class ViewController: NSViewController {
     
     @IBAction func importJewels(_ sender: Any) {
         let selectFolderOp = SelectFolderOperation()
-        let selectDealerOp = SelectDealerOperation(presentingViewController: self,
-                                                   selectFolderOperation: selectFolderOp)
+        let selectDealerOp = SelectDealerOperation(presentingViewController: self)
+        selectDealerOp.canRun = {
+            guard let files = selectFolderOp.selectedFiles,
+                files.count > 0 else {
+                    return false
+            }
+            return true
+        }
         
         
         let showProgressOp = BlockOperation {

@@ -10,7 +10,7 @@ import Foundation
 
 class CopyImageOperation: Operation {
     let source: URL
-    let fileName: String
+    let createOp: CreateJewelOperation
     
     static var picturesFolder: URL = {
         let fm = FileManager.default
@@ -32,22 +32,51 @@ class CopyImageOperation: Operation {
         return appPicturesDirectory
     }()
     
-    var destination: URL {
-        let fileWithoutExtension = CopyImageOperation.picturesFolder.appendingPathComponent(fileName)
-        return fileWithoutExtension.appendingPathExtension(source.pathExtension)
-    }
-    
-    init(source: URL, fileName: String) {
-        self.source = source
-        self.fileName = fileName
+    init(createJewelOp: CreateJewelOperation) {
+        self.source = createJewelOp.imageURL
+        self.createOp = createJewelOp
     }
     
     override func main() {
         guard !self.isCancelled else { return }
+        
+        guard let dealerName = createOp.dealerName,
+            let jewelID = createOp.jewelID else {
+                return
+        }
+        let ext = createOp.imageURL.pathExtension
+        let dest = destination(forDealer: dealerName,
+                               jewelID: jewelID,
+                               ext: ext)
         do {
-            try FileManager.default.copyItem(at: source, to: destination)
+            try FileManager.default.copyItem(at: source, to: dest)
         } catch {
             print(error)
         }
+    }
+    
+    func destination(forDealer dealerName: String, jewelID: String, ext: String) -> URL {
+        let dealerFolder = folder(forDealer: dealerName)
+        let dest = dealerFolder.appendingPathComponent(jewelID)
+        return dest.appendingPathExtension(ext)
+    }
+    
+    
+    func folder(forDealer dealerName: String) -> URL {
+        let dealerDirectory = CopyImageOperation.picturesFolder.appendingPathComponent(dealerName)
+        let fm = FileManager.default
+        if fm.fileExists(atPath: dealerDirectory.path) {
+            return dealerDirectory
+        }
+        
+        do {
+            try fm.createDirectory(at: dealerDirectory,
+                                   withIntermediateDirectories: false,
+                                   attributes: nil)
+        } catch {
+            print(error)
+        }
+        
+        return dealerDirectory
     }
 }

@@ -12,12 +12,13 @@ import RealmSwift
 class SelectDealerOperation: AsyncOperation {
     var selectedDealerRef: ThreadSafeReference<RODealer>?
     let presentingViewController: NSViewController
-    weak var selectFolderOp: SelectFolderOperation?
     
-    init(presentingViewController: NSViewController,
-         selectFolderOperation: SelectFolderOperation) {
+    var canRun: () -> Bool = {
+        return true
+    }
+    
+    init(presentingViewController: NSViewController) {
         self.presentingViewController = presentingViewController
-        self.selectFolderOp = selectFolderOperation
     }
     
     override func main() {
@@ -26,9 +27,7 @@ class SelectDealerOperation: AsyncOperation {
             return
         }
         
-        guard let files = selectFolderOp?.selectedFiles,
-            files.count > 0
-        else {
+        guard canRun() else {
             setFinished(true)
             return
         }
