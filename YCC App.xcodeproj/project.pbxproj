@@ -46,6 +46,7 @@
 		AC752B2620EE69EA001ED601 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2520EE69EA001ED601 /* AsyncOperation.swift */; };
 		AC752B2820EE6A46001ED601 /* SelectDealerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */; };
 		AC752B2A20EFC88B001ED601 /* CreateJewelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2920EFC88B001ED601 /* CreateJewelOperation.swift */; };
+		AC752B2C20F05A98001ED601 /* AppDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2B20F05A98001ED601 /* AppDirectory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		AC752B2520EE69EA001ED601 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDealerOperation.swift; sourceTree = "<group>"; };
 		AC752B2920EFC88B001ED601 /* CreateJewelOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJewelOperation.swift; sourceTree = "<group>"; };
+		AC752B2B20F05A98001ED601 /* AppDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDirectory.swift; sourceTree = "<group>"; };
 		C82F01D9290011DD939C51D4 /* Pods-YCC App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 		ACFFB6A420EB039E0022F780 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AC752B2B20F05A98001ED601 /* AppDirectory.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				AC216F6E20EA8F8D00BB19DF /* IntegerValidator.swift in Sources */,
 				AC6B161420E9403000AD5E15 /* AppDelegate.swift in Sources */,
 				AC752B2420EE697C001ED601 /* String+highlight.swift in Sources */,
+				AC752B2C20F05A98001ED601 /* AppDirectory.swift in Sources */,
 				AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */,
 				AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */,
 				AC752B2620EE69EA001ED601 /* AsyncOperation.swift in Sources */,
