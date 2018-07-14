@@ -61,34 +61,21 @@ class ImportJewelsViewController: NSViewController {
             
             copyOperation.completionBlock = {
                 DispatchQueue.main.async { [unowned self] in
-                    self.filesRemaining -= 1
-                    self.progressBar.doubleValue += 1.0
-                    if self.filesRemaining == 0 {
-                        self.dismiss(self)
-                    }
+                    self.makeOneProgress()
                 }
             }
         }
-//        let copyOperations: [CopyImageOperation] = files.map {
-//            let op = CopyImageOperation(source: $0, fileName: $0.lastPathComponent)
-//            op.completionBlock = {
-//                // Update the view in main queue
-//                DispatchQueue.main.async { [unowned self] in
-//                    self.filesRemaining -= 1
-//                    self.progressBar.doubleValue += 1.0
-//                    if self.filesRemaining == 0 {
-//                        self.dismiss(self)
-//                    }
-//                }
-//            }
-//            return op
-//        }
-//        
+
         let opQueue = OperationQueue()
         opQueue.qualityOfService = .userInitiated
-        var ops: [Operation] = copyOperations
-        ops.append(contentsOf: createOperations)
-        opQueue.addOperations(ops, waitUntilFinished: false)
+        opQueue.addOperations(copyOperations, waitUntilFinished: false)
+        opQueue.addOperations(createOperations, waitUntilFinished: false)
+    }
+    
+    private func makeOneProgress() {
+        filesRemaining -= 1
+        progressBar.doubleValue += 1.0
+        if filesRemaining == 0 { dismiss(self) }
     }
     
     private func resetUI(withSelectedFolder folder: URL, andFiles files: [URL]) {

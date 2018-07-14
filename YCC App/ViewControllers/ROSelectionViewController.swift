@@ -96,7 +96,9 @@ class ROSelectionViewController
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let highlighted = filtered[row].summary.highlight(queryString)
         let bgView = NSView(frame: .zero)
+        
         let lbl = NSTextField(labelWithAttributedString: highlighted)
+        
         bgView.addSubview(lbl)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -113,7 +115,7 @@ class ROSelectionViewController
         let item = filtered[selectedRow]
         let threadSafeRef = ThreadSafeReference(to: item)
         delegate?.selectionMade(threadSafeRef)
-        dismiss(self)
+        
     }
     
     func windowWillClose(_ notification: Notification) {

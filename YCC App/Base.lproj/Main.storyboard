@@ -81,6 +81,19 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Orders" id="WRn-oF-Of9">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Orders" id="8zZ-UE-yrE">
+                                    <items>
+                                        <menuItem title="Create" id="hWZ-PW-5lh">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="createOrder:" target="Ady-hI-5gd" id="625-3h-r8M"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                     </menu>
                     <connections>
@@ -181,7 +194,7 @@ Gw
                 </viewController>
                 <customObject id="Tj0-n0-9vC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="604" y="583"/>
+            <point key="canvasLocation" x="623" y="154"/>
         </scene>
         <!--Create Dealer-->
         <scene sceneID="jf6-ho-sCC">
@@ -413,7 +426,7 @@ Gw
                 </viewController>
                 <customObject id="MEu-De-O5f" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1144.5" y="305.5"/>
+            <point key="canvasLocation" x="1133" y="273"/>
         </scene>
     </scenes>
 </document>

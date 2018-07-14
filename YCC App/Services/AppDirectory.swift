@@ -37,7 +37,7 @@ class AppDirectory {
     }
     
     
-    private static func folder(forDealer dealerName: String) -> URL {
+    static func folder(forDealer dealerName: String) -> URL {
         let dealerDirectory = picturesFolder.appendingPathComponent(dealerName)
         if fm.fileExists(atPath: dealerDirectory.path) {
             return dealerDirectory

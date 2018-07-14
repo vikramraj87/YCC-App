@@ -28,10 +28,13 @@ class ViewController: NSViewController {
         
         
         let showProgressOp = BlockOperation {
-            guard let folder = selectFolderOp.selectedFolder else { return }
-            guard let files = selectFolderOp.selectedFiles else { return }
-            guard let dealerRef = selectDealerOp.selectedDealerRef else { return }
-
+            guard let folder = selectFolderOp.selectedFolder,
+                let files = selectFolderOp.selectedFiles,
+                let dealerRef = selectDealerOp.selectedDealerRef
+            else {
+                return
+            }
+            
             let vc = NSStoryboard.main!.instantiateController(withIdentifier: .importJewels) as! ImportJewelsViewController
             vc.selectedFolder = folder
             vc.selectedFiles = files
@@ -51,6 +54,11 @@ class ViewController: NSViewController {
     @IBAction func createDealer(_ sender: Any) {
         let vc = NSStoryboard.main!.instantiateController(withIdentifier: .createDealer) as! CreateDealerViewController
         self.presentViewControllerAsModalWindow(vc)
+    }
+    
+    @IBAction func createOrder(_ sender: Any) {
+        let splitViewController = SelectDealerJewelViewController()
+        self.presentViewControllerAsModalWindow(splitViewController)
     }
 
 }

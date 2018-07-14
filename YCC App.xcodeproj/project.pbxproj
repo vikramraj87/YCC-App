@@ -47,6 +47,10 @@
 		AC752B2820EE6A46001ED601 /* SelectDealerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */; };
 		AC752B2A20EFC88B001ED601 /* CreateJewelOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2920EFC88B001ED601 /* CreateJewelOperation.swift */; };
 		AC752B2C20F05A98001ED601 /* AppDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC752B2B20F05A98001ED601 /* AppDirectory.swift */; };
+		ACA2CF2220FA5D5C00FF0033 /* SelectDealerJewelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA2CF2120FA5D5C00FF0033 /* SelectDealerJewelViewController.swift */; };
+		ACA2CF2620FA672700FF0033 /* JewelCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA2CF2420FA672700FF0033 /* JewelCollectionViewItem.swift */; };
+		ACA2CF2720FA672700FF0033 /* JewelCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACA2CF2520FA672700FF0033 /* JewelCollectionViewItem.xib */; };
+		ACA2CF2920FA6C8100FF0033 /* SelectJewelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA2CF2820FA6C8100FF0033 /* SelectJewelViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +103,10 @@
 		AC752B2720EE6A46001ED601 /* SelectDealerOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDealerOperation.swift; sourceTree = "<group>"; };
 		AC752B2920EFC88B001ED601 /* CreateJewelOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateJewelOperation.swift; sourceTree = "<group>"; };
 		AC752B2B20F05A98001ED601 /* AppDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDirectory.swift; sourceTree = "<group>"; };
+		ACA2CF2120FA5D5C00FF0033 /* SelectDealerJewelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDealerJewelViewController.swift; sourceTree = "<group>"; };
+		ACA2CF2420FA672700FF0033 /* JewelCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JewelCollectionViewItem.swift; sourceTree = "<group>"; };
+		ACA2CF2520FA672700FF0033 /* JewelCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JewelCollectionViewItem.xib; sourceTree = "<group>"; };
+		ACA2CF2820FA6C8100FF0033 /* SelectJewelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectJewelViewController.swift; sourceTree = "<group>"; };
 		C82F01D9290011DD939C51D4 /* Pods-YCC App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YCC App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YCC App/Pods-YCC App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,6 +184,8 @@
 				AC20D5EC20E94821000206E3 /* ImportJewelsViewController.swift */,
 				AC20D5EB20E94821000206E3 /* SceneIdentifiers.swift */,
 				AC1C1B4F20EDA80900CF8B83 /* ROSelectionViewController.swift */,
+				ACA2CF2120FA5D5C00FF0033 /* SelectDealerJewelViewController.swift */,
+				ACA2CF2820FA6C8100FF0033 /* SelectJewelViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +213,7 @@
 		AC6B161220E9403000AD5E15 /* YCC App */ = {
 			isa = PBXGroup;
 			children = (
+				ACA2CF2320FA670900FF0033 /* Views */,
 				AC752B2220EE6964001ED601 /* Extensions */,
 				ACFFB6A420EB039E0022F780 /* Services */,
 				AC20D5EA20E94813000206E3 /* ViewControllers */,
@@ -245,6 +256,15 @@
 				AC752B2320EE697C001ED601 /* String+highlight.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		ACA2CF2320FA670900FF0033 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACA2CF2420FA672700FF0033 /* JewelCollectionViewItem.swift */,
+				ACA2CF2520FA672700FF0033 /* JewelCollectionViewItem.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		ACFFB6A420EB039E0022F780 /* Services */ = {
@@ -348,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACA2CF2720FA672700FF0033 /* JewelCollectionViewItem.xib in Resources */,
 				AC6B161820E9403100AD5E15 /* Assets.xcassets in Resources */,
 				AC6B161B20E9403100AD5E15 /* Main.storyboard in Resources */,
 			);
@@ -426,10 +447,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACA2CF2220FA5D5C00FF0033 /* SelectDealerJewelViewController.swift in Sources */,
 				AC20D5E420E947D4000206E3 /* Dealer.swift in Sources */,
 				AC20D5DD20E947A5000206E3 /* NameValidator.swift in Sources */,
 				AC216F6120EA86E500BB19DF /* LengthValidator.swift in Sources */,
 				AC20D5F020E94821000206E3 /* CreateDealerViewController.swift in Sources */,
+				ACA2CF2620FA672700FF0033 /* JewelCollectionViewItem.swift in Sources */,
 				AC20D5DC20E947A5000206E3 /* RegexValidator.swift in Sources */,
 				AC752B2A20EFC88B001ED601 /* CreateJewelOperation.swift in Sources */,
 				AC20D5DE20E947A5000206E3 /* Validator.swift in Sources */,
@@ -446,6 +469,7 @@
 				AC752B2C20F05A98001ED601 /* AppDirectory.swift in Sources */,
 				AC20D5E120E947B5000206E3 /* FailedValidationReason.swift in Sources */,
 				AC20D5E920E947F6000206E3 /* SelectFolderOperation.swift in Sources */,
+				ACA2CF2920FA6C8100FF0033 /* SelectJewelViewController.swift in Sources */,
 				AC752B2620EE69EA001ED601 /* AsyncOperation.swift in Sources */,
 				AC752B2820EE6A46001ED601 /* SelectDealerOperation.swift in Sources */,
 				AC20D5DF20E947A5000206E3 /* ValidationResult.swift in Sources */,

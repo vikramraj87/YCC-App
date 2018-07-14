@@ -12,6 +12,7 @@ import RealmSwift
 class SelectDealerOperation: AsyncOperation {
     var selectedDealerRef: ThreadSafeReference<RODealer>?
     let presentingViewController: NSViewController
+    var dealersViewController: ROSelectionViewController<RODealer, SelectDealerOperation>?
     
     var canRun: () -> Bool = {
         return true
@@ -39,16 +40,17 @@ class SelectDealerOperation: AsyncOperation {
             return
         }
         let allDealers = Array(realm.objects(RODealer.self).sorted(byKeyPath: "name"))
-        let selectItemVC = ROSelectionViewController<RODealer, SelectDealerOperation>()
-        selectItemVC.items = allDealers
-        selectItemVC.delegate = self
-        presentingViewController.presentViewControllerAsModalWindow(selectItemVC)
+        dealersViewController = ROSelectionViewController<RODealer, SelectDealerOperation>()
+        dealersViewController!.items = allDealers
+        dealersViewController!.delegate = self
+        presentingViewController.presentViewControllerAsModalWindow(dealersViewController!)
     }
 }
 
 extension SelectDealerOperation: ROSelectionViewControllerDelegate {
     func selectionMade(_ itemRef: ThreadSafeReference<RODealer>) {
         selectedDealerRef = itemRef
+        dealersViewController?.dismiss(self)
         self.setExecuting(false)
         self.setFinished(true)
     }
