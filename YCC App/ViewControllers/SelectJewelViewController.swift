@@ -23,21 +23,33 @@ class SelectJewelViewController: NSViewController {
         super.viewDidLoad()
         configCollectionView()
         
-        guard let realm = try? Realm() else {
-            print("Realm instance not available")
-            return
-        }
-        
-        jewels  = realm.objects(ROJewel.self).sorted(byKeyPath: "addedOn", ascending: false)
-        collectionView.reloadData()
-    }
-    
-    override func viewDidLayout() {
-        super.viewDidLayout()
+        displayJewels(for: nil)
     }
     
     override func loadView() {
         view = NSView(frame: .zero)
+    }
+    
+    func displayJewels(for dealerRef: ThreadSafeReference<RODealer>?) {
+        jewels = fetchJewels(for: dealerRef)
+        collectionView.reloadData()
+    }
+    
+    private func fetchJewels(for dealerRefOrNil: ThreadSafeReference<RODealer>?) -> Results<ROJewel>? {
+        guard let realm = try? Realm() else {
+            print("Realm instance not available")
+            return nil
+        }
+        
+        guard let dealerRef = dealerRefOrNil else {
+            return realm.objects(ROJewel.self)
+                        .sorted(byKeyPath: "addedOn", ascending: false)
+        }
+        guard let dealer = realm.resolve(dealerRef) else {
+            print("Cannot resolve dealer reference")
+            return nil
+        }
+        return dealer.sortedJewels
     }
     
     private func configCollectionView() {
@@ -100,11 +112,11 @@ extension SelectJewelViewController: NSCollectionViewDataSource {
         }
     }
     
-    
     private func url(forJewelId jewelId: String, forDealer dealerName: String) -> URL? {
         if let cachedURL = urlCache[jewelId] {
             return cachedURL
         }
+        
         let imageFileName = AppDirectory.folder(forDealer: dealerName)
                                         .appendingPathComponent(jewelId)
         let fm = FileManager.default

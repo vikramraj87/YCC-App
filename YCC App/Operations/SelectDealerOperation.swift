@@ -48,8 +48,11 @@ class SelectDealerOperation: AsyncOperation {
 }
 
 extension SelectDealerOperation: ROSelectionViewControllerDelegate {
-    func selectionMade(_ itemRef: ThreadSafeReference<RODealer>) {
-        selectedDealerRef = itemRef
+    func selectionMade(_ itemRef: ThreadSafeReference<RODealer>?) {
+        guard let dealerRef = itemRef else {
+            return
+        }
+        selectedDealerRef = dealerRef
         dealersViewController?.dismiss(self)
         self.setExecuting(false)
         self.setFinished(true)

@@ -63,8 +63,8 @@ class SelectDealerJewelViewController: NSSplitViewController {
 
 extension SelectDealerJewelViewController: ROSelectionViewControllerDelegate {
     typealias T = RODealer
-    func selectionMade(_ itemRef: ThreadSafeReference<RODealer>) {
-        
+    func selectionMade(_ itemRef: ThreadSafeReference<RODealer>?) {
+        selectJewelVC.displayJewels(for: itemRef)
     }
     func modalWindowClosed() {
         // not required

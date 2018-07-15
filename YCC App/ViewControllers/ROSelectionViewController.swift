@@ -17,7 +17,7 @@ protocol FilterableItem {
 protocol ROSelectionViewControllerDelegate: class {
     associatedtype T: Object
     func modalWindowClosed()
-    func selectionMade(_ itemRef: ThreadSafeReference<T>)
+    func selectionMade(_ itemRef: ThreadSafeReference<T>?)
 }
 
 class ROSelectionViewController
@@ -111,7 +111,10 @@ class ROSelectionViewController
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let selectedRow = tableView.selectedRow
-        guard selectedRow != -1 else { return }
+        guard selectedRow != -1 else {
+            delegate?.selectionMade(nil)
+            return
+        }
         let item = filtered[selectedRow]
         let threadSafeRef = ThreadSafeReference(to: item)
         delegate?.selectionMade(threadSafeRef)
