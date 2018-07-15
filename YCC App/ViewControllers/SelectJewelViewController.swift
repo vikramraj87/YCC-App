@@ -14,9 +14,10 @@ extension NSUserInterfaceItemIdentifier {
 }
 
 class SelectJewelViewController: NSViewController {
-    let scrollView = NSScrollView()
+    let scrollView = NSScrollView(frame: .zero)
     let collectionView = NSCollectionView(frame: .zero)
     var jewels: Results<ROJewel>?
+    var urlCache: [String: URL] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +32,23 @@ class SelectJewelViewController: NSViewController {
         collectionView.reloadData()
     }
     
+    override func viewDidLayout() {
+        super.viewDidLayout()
+    }
+    
     override func loadView() {
-        let rect = NSRect(x: 0, y: 0, width: 400, height: 300)
-        view = NSView(frame: rect)
+        view = NSView(frame: .zero)
     }
     
     private func configCollectionView() {
+        let layout = NSCollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 4
+        layout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        layout.itemSize = NSSize(width: 120, height: 160.0)
+        collectionView.collectionViewLayout = layout
+        
+        scrollView.documentView = collectionView
         view.addSubview(scrollView)
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,24 +59,12 @@ class SelectJewelViewController: NSViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
-        scrollView.documentView = collectionView
-        let layout = NSCollectionViewFlowLayout()
-        
-        layout.minimumLineSpacing = 4
-        layout.sectionInset = NSEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
-        layout.itemSize = NSSize(width: 120, height: 160.0)
-        
         collectionView.dataSource = self
-        collectionView.collectionViewLayout = layout
     }
     
 }
 
 extension SelectJewelViewController: NSCollectionViewDataSource {
-    func numberOfSections(in collectionView: NSCollectionView) -> Int {
-        return 1
-    }
-    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         return jewels?.count ?? 0
     }
@@ -78,29 +78,44 @@ extension SelectJewelViewController: NSCollectionViewDataSource {
         
         guard let jewels = jewels else { return jewelItem }
         let jewel = jewels[indexPath.item]
-        let dealerName = jewel.dealer.name
-        let jewelId = jewel.id
-        jewelItem.imageView?.image = nil
-        DispatchQueue.global(qos: .userInitiated).async {
-            let dealerFolder = AppDirectory.folder(forDealer: dealerName)
-            let imageFileName = dealerFolder.appendingPathComponent(jewelId)
-            let fm = FileManager.default
-            var imageFile = imageFileName.appendingPathExtension("jpg")
-            if !fm.fileExists(atPath: imageFile.path) {
-                imageFile = imageFileName.appendingPathExtension("jpeg")
-            }
-            if !fm.fileExists(atPath: imageFile.path) {
-                print("File not exist")
-                return
-            }
-            DispatchQueue.main.async {
-                jewelItem.imageView?.image = NSImage(contentsOf: imageFile)
-            }
-        }
         
+        self.configCollectionViewItem(jewelItem, with: jewel)
         
         return jewelItem
     }
     
+    private func configCollectionViewItem(_ jewelItem: JewelCollectionViewItem,
+                                          with jewel: ROJewel) {
+        let dealerName = jewel.dealer.name
+        let jewelId = jewel.id
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            guard let imageURL = self.url(forJewelId: jewelId, forDealer: dealerName) else {
+                return
+            }
+            DispatchQueue.main.async {
+                jewelItem.textField?.stringValue = dealerName
+                jewelItem.imageView?.image = NSImage(contentsOf: imageURL)
+            }
+        }
+    }
     
+    
+    private func url(forJewelId jewelId: String, forDealer dealerName: String) -> URL? {
+        if let cachedURL = urlCache[jewelId] {
+            return cachedURL
+        }
+        let imageFileName = AppDirectory.folder(forDealer: dealerName)
+                                        .appendingPathComponent(jewelId)
+        let fm = FileManager.default
+        var imageFile = imageFileName.appendingPathExtension("jpg")
+        if !fm.fileExists(atPath: imageFile.path) {
+            imageFile = imageFileName.appendingPathExtension("jpeg")
+        }
+        if !fm.fileExists(atPath: imageFile.path) {
+            return nil
+        }
+        urlCache[jewelId] = imageFile
+        return imageFile
+    }
 }

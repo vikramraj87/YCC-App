@@ -15,4 +15,9 @@ class JewelCollectionViewItem: NSCollectionViewItem {
         // Do view setup here.
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        textField?.stringValue = ""
+        imageView?.image = nil
+    }
 }

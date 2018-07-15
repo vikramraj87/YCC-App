@@ -56,7 +56,7 @@ class SelectDealerJewelViewController: NSSplitViewController {
         addSplitViewItem(dealersSplitItem)
         
         let jewelsSplitItem = NSSplitViewItem(viewController: selectJewelVC)
-        jewelsSplitItem.minimumThickness = 400.0
+        jewelsSplitItem.minimumThickness = 500.0
         addSplitViewItem(jewelsSplitItem)
     }
 }
